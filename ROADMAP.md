@@ -61,8 +61,8 @@ M12 reuses it on a bigger grid.
 
 ## Progress
 
-- [ ] M0 · Git & GitHub
-- [ ] M1 · Task model
+- [x] M0 · Git & GitHub
+- [x] M1 · Task model
 - [ ] M2 · Week grid
 - [ ] M3 · Week navigation
 - [ ] M4 · Task service
