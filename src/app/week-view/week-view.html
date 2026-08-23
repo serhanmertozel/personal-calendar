@@ -1,1 +1,3 @@
-<p>week-view works!</p>
+@for (day of days; track day.iso) {
+  <div>{{ day.name }} {{ day.number }}</div>
+}
