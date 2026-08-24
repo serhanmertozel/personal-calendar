@@ -12,14 +12,17 @@ export class WeekView {
 
   buildWeek() {
     const monday = startOfWeek(new Date());
+    const todayIso = toIsoDate(new Date());
     const week = [];
 
     for (let i = 0; i < 7; i++) {
       const date = addDays(monday, i);
+      const iso = toIsoDate(date);
       week.push({
-        iso: toIsoDate(date),
+        iso,
         name: date.toLocaleDateString("en-US", { weekday: "short" }),
         number: date.getDate(),
+        isToday: iso === todayIso,
       });
     }
 

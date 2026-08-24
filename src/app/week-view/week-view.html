@@ -1,3 +1,11 @@
-@for (day of days; track day.iso) {
-  <div>{{ day.name }} {{ day.number }}</div>
-}
+<div class="week">
+  @for (day of days; track day.iso) {
+    <div class="day" [class.today]="day.isToday">
+      <div class="day-header">
+        <span class="day-name">{{ day.name }}</span>
+        <span class="day-number">{{ day.number }}</span>
+      </div>
+      <div class="day-body"></div>
+    </div>
+  }
+</div>

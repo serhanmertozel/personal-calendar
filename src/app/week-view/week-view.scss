@@ -1,0 +1,76 @@
+:host {
+  display: block;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: #fff;
+  border: 1px solid #e0e3e7;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 1px 2px rgba(60, 64, 67, 0.08),
+    0 4px 16px rgba(60, 64, 67, 0.06);
+}
+
+.day {
+  border-right: 1px solid #e8eaed;
+  transition: background 0.15s ease;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  &:hover {
+    background: #fafbfc;
+  }
+}
+
+.day-header {
+  padding: 16px 8px 14px;
+  text-align: center;
+  border-bottom: 1px solid #e8eaed;
+}
+
+.day-name {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #70757a;
+}
+
+.day-number {
+  display: block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin: 8px auto 0;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 400;
+  color: #3c4043;
+}
+
+.day.today {
+  .day-name {
+    color: #1a73e8;
+    font-weight: 600;
+  }
+
+  .day-number {
+    background: #1a73e8;
+    color: #fff;
+    font-weight: 500;
+  }
+}
+
+.day-body {
+  min-height: 560px;
+  padding: 8px 6px;
+}
