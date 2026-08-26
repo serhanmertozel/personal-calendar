@@ -10,9 +10,10 @@ import { addDays, startOfWeek, toIsoDate } from '../utils/date';
 export class WeekView {
   anchorDate = signal(new Date());
 
-  monthLabel = computed(() => startOfWeek(this.anchorDate()).toLocaleDateString("en-US", {
-      month: "long",
-      year: "numeric",
+  monthLabel = computed(() =>
+    startOfWeek(this.anchorDate()).toLocaleDateString('en-US', {
+      month: 'long',
+      year: 'numeric',
     }),
   );
 
@@ -28,7 +29,7 @@ export class WeekView {
       const iso = toIsoDate(date);
       week.push({
         iso,
-        name: date.toLocaleDateString("en-US", { weekday: "short" }),
+        name: date.toLocaleDateString('en-US', { weekday: 'short' }),
         number: date.getDate(),
         isToday: iso === todayIso,
       });

@@ -7,5 +7,4 @@ import { WeekView } from './week-view/week-view';
   styleUrl: './app.scss',
   templateUrl: './app.html',
 })
-export class App {
-}
+export class App {}
