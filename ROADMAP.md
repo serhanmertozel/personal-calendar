@@ -63,7 +63,7 @@ M12 reuses it on a bigger grid.
 
 - [x] M0 · Git & GitHub
 - [x] M1 · Task model
-- [ ] M2 · Week grid
+- [x] M2 · Week grid
 - [ ] M3 · Week navigation
 - [ ] M4 · Task service
 - [ ] M5 · Task boxes

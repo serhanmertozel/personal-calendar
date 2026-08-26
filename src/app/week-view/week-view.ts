@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { addDays, startOfWeek, toIsoDate } from '../utils/date';
 
 @Component({
@@ -8,10 +8,19 @@ import { addDays, startOfWeek, toIsoDate } from '../utils/date';
   templateUrl: './week-view.html',
 })
 export class WeekView {
-  days = this.buildWeek();
+  anchorDate = signal(new Date());
 
-  buildWeek() {
-    const monday = startOfWeek(new Date());
+  monthLabel = computed(() =>
+    startOfWeek(this.anchorDate()).toLocaleDateString('en-US', {
+      month: 'long',
+      year: 'numeric',
+    }),
+  );
+
+  days = computed(() => this.buildWeek(this.anchorDate()));
+
+  buildWeek(from: Date) {
+    const monday = startOfWeek(from);
     const todayIso = toIsoDate(new Date());
     const week = [];
 
@@ -20,12 +29,24 @@ export class WeekView {
       const iso = toIsoDate(date);
       week.push({
         iso,
-        name: date.toLocaleDateString("en-US", { weekday: "short" }),
+        name: date.toLocaleDateString('en-US', { weekday: 'short' }),
         number: date.getDate(),
         isToday: iso === todayIso,
       });
     }
 
     return week;
+  }
+
+  previousWeek() {
+    this.anchorDate.set(addDays(this.anchorDate(), -7));
+  }
+
+  nextWeek() {
+    this.anchorDate.set(addDays(this.anchorDate(), 7));
+  }
+
+  goToToday() {
+    this.anchorDate.set(new Date());
   }
 }

@@ -5,4 +5,3 @@ export interface Task {
   done: boolean;
   color: string;
 }
-

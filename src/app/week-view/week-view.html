@@ -1,5 +1,12 @@
+<div class="toolbar">
+  <button class="today-btn" (click)="goToToday()">Today</button>
+  <button class="nav-btn" (click)="previousWeek()">‹</button>
+  <button class="nav-btn" (click)="nextWeek()">›</button>
+  <h2 class="month-label">{{ monthLabel() }}</h2>
+</div>
+
 <div class="week">
-  @for (day of days; track day.iso) {
+  @for (day of days(); track day.iso) {
     <div class="day" [class.today]="day.isToday">
       <div class="day-header">
         <span class="day-name">{{ day.name }}</span>
